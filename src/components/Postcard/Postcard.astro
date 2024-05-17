@@ -1,0 +1,33 @@
+---
+import { SubscribeForm } from "./SubscribeForm";
+---
+
+<div class="subscribe">
+  <SubscribeForm client:visible />
+  <footer>
+    <small class="disclaimer">No trackers, unsubscribe anytime.</small>
+  </footer>
+</div>
+
+<style lang="scss">
+  .subscribe {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-l);
+    border: 1px solid var(--gray-6);
+    border-radius: var(--radius-m);
+    margin-inline: auto;
+    position: relative;
+  }
+
+  :global(.transitioning) .subscribe {
+    transition: all 0.2s ease-in-out;
+  }
+
+  .disclaimer {
+    display: block;
+    color: var(--gray-11);
+  }
+</style>
