@@ -40,10 +40,10 @@ const REMARK_TIMEOUT = 1000;
 const remarks: Record<RemarkType, Remark> = {
   intro: {
     text: [
+      "⚡️",
       "hey bestie",
       "what’s up",
       "hey you",
-      "hey nerd",
       "you found me!",
       "welcome 2 my garden ✿",
       "salutations",

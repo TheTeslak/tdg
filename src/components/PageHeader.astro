@@ -34,14 +34,14 @@ const { title, description, img, imgAlt, datePublished, dateModified } =
         <div class="page-dates">
           <RelativeDate
             date={datePublished}
-            prefix="Planted"
+            prefix="Created"
             icon="seedling"
             client:load
           />
           {dateModified && (
             <RelativeDate
               date={dateModified}
-              prefix="Last tended"
+              prefix="Updated"
               icon="sparkling"
               client:load
             />

@@ -102,6 +102,7 @@
 }
 
 .prose p + p {
+  margin-bottom: 2em;
   text-indent: 1.3em;
 }
 
