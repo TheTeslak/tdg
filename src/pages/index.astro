@@ -11,8 +11,6 @@ import PostLink from "src/components/PostLink.astro";
 import PageHeader from "../components/PageHeader.astro";
 import { smartquotes } from "../helpers/helpers";
 
-import Button from "../components/Buttons.astro";
-
 const posts = await getCollection("posts");
 posts.sort((a, b) => {
   return dayjs(b.data.datePublished).isBefore(dayjs(a.data.datePublished))
@@ -62,42 +60,46 @@ work.sort((a, b) =>
     <br />
     <br />
     <div>
-      <Button class="tg_button">Telegram</Button>
-      <Button class="Button">Telegram</Button>
-      <button class="tg_button">Telegram Blog</button>
+      <button class="tgbutton">Telegram Blog</button>
       <button class="Button">Instagram</button>
     </div>
   </Center>
 </BaseLayout>
 
-<script>
-  import { addSam, clearSams, numSams } from "../stores/sam";
-
-  function setupSam() {
-    const samButton = document.querySelector("[data-sam-button]");
-    samButton?.addEventListener("click", () => addSam());
-
-    const shooButton = document.querySelector("[data-sam-shoo]");
-
-    if (shooButton) {
-      shooButton.addEventListener("click", () => {
-        clearSams();
-      });
-
-      numSams.subscribe((num) => {
-        num > 2
-          ? shooButton.classList.add("visible")
-          : shooButton.classList.remove("visible");
-      });
-    }
+<style lang="scss">
+  .tgbutton {
+    padding: 0.75em 1.5em;
+    border: 0;
+    border-radius: 4px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(25, 99, 207, 0.2);
+    transition:
+      background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
   }
 
-  setupSam();
+  .tgbutton:hover,
+  .tgbutton:focus {
+    background-color: #1666c1;
+    box-shadow: 0 4px 15px 0 rgba(25, 99, 207, 0.3);
+  }
 
-  document.addEventListener("astro:after-swap", () => setupSam());
-</script>
+  .tgbutton:active {
+    background-color: #0f57a1;
+    box-shadow: none;
+  }
 
-<style lang="scss">
+  .tgbutton:focus {
+    outline: none;
+    box-shadow:
+      0 0 0 2px #fff,
+      0 0 0 4px #1a73e8;
+  }
+
   .visuallyhidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
